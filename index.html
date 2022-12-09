@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="m-auto">
+  <div class="testimonials">
+    <div class="m-auto">
+      <button class="prev">
+        <
+      </button>
+    </div>
+    <div class="siema">
+      <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+      <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+      <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+      <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+    </div>
+    <div class="m-auto">
+      <button class="next">
+        >
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="siema.min.js"></script>
+<script>
+  const mySiema = new Siema({
+    duration: 1000,
+    loop: true,
+  });
+
+  // listen for keydown event
+  setInterval(() => mySiema.next(), 3000)
+
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+
+  prev.addEventListener('click', () => mySiema.prev());
+  next.addEventListener('click', () => mySiema.next());
+</script>

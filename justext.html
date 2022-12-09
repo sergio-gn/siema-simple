@@ -1,0 +1,48 @@
+<!-- First -->
+
+<button class="prev">
+    <
+</button>
+<div class="siema">
+    <div>
+        <p>Slide 1</p>
+        <p>Slide 2</p>
+    </div>
+    <div>
+        <p>Slide 1</p>
+        <p>Slide 2</p>
+    </div>
+    <div>
+        <p>Slide 1</p>
+        <p>Slide 2</p>
+        <p>Slide 3</p>
+    </div>
+    <div>
+        <p>Slide 1</p>
+        <p>Slide 2</p>
+        <p>Slide 4</p>
+    </div>
+</div>
+
+<button class="next">
+    >
+</button>
+
+
+
+
+<script src="siema.min.js" type="text/javascript"></script>
+<script>
+// Initialize first
+new Siema();
+
+// listen for keydown event
+setInterval(() => mySiema.next(), 3000)
+
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+prev.addEventListener('click', () => mySiema.prev());
+next.addEventListener('click', () => mySiema.next());
+
+</script>

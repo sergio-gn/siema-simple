@@ -1,0 +1,16 @@
+
+
+.testimonials {
+    max-width: 30rem;
+    display: flex;
+}
+.siema img{
+width: 100%;
+}
+
+.flex{
+    display: flex;
+}
+.m-auto{
+    margin: auto;
+}

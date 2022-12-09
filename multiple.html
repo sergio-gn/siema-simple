@@ -1,0 +1,95 @@
+<style>
+body {
+width: 100%;
+max-width: 30rem;
+margin: 0 auto;
+}
+
+img {
+width: 100%;
+}
+
+.siema {
+margin: 1rem 0;
+position: relative;
+}
+
+
+.button-next{
+position: absolute;
+right: 0;
+top: 50%;
+}
+
+.button-back{
+position: absolute;
+left: 0;
+top: 50%;
+}
+
+.button-back,.button-next{
+background: black
+}
+</style>
+
+
+<div class="siema">
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+</div>
+
+<div class="siema">
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+</div>
+
+<div class="siema">
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+    <div><img src="https://pawelgrzybek.github.io/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+</div>
+
+<script src="siema.min.js"></script>
+<script>
+    // Because this is possible
+// It doesn't mean that this is a best solution
+// This is a case when you may look at some more complex tools
+// Like very cool Flickity or Swiper
+
+const siemas = document.querySelectorAll('.siema');
+
+// Extend prototype with method that adds arrows to DOM
+// Style the arrows with CSS or JS — up to you mate
+Siema.prototype.addArrows = function() {
+  
+  // make buttons & append them inside Siema's container
+  let button1 = this.prevArrow = document.createElement('button');
+  button1.classList.add('button-back');
+  let button2 = this.nextArrow = document.createElement('button');
+  button2.classList.add('button-next');
+  this.prevArrow.textContent = '<';
+  this.nextArrow.textContent = '>';
+  this.selector.appendChild(this.prevArrow)
+  this.selector.appendChild(this.nextArrow)
+  
+  // event handlers on buttons
+  this.prevArrow.addEventListener('click', () => this.prev());
+  this.nextArrow.addEventListener('click', () => this.next());
+}
+
+// this is fairly new way of looping through DOM Elements
+// More about ithere: https://pawelgrzybek.com/loop-through-a-collection-of-dom-elements/
+// For better compatibility I suggest using for loop
+for(const siema of siemas) {
+  const instance = new Siema({
+    selector: siema,
+  });
+  instance.addArrows();
+}
+
+</script>
